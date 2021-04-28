@@ -1,7 +1,16 @@
 import React from "react";
+import Header from "./Header";
+import CardSection from "./CardSection";
+import Chart from "./Chart";
 
 const App = () => {
-  return <div></div>;
+  return (
+    <>
+      <Header />
+      <CardSection />
+      <Chart />
+    </>
+  );
 };
 
 export default App;
