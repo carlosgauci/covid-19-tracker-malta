@@ -8,6 +8,10 @@ module.exports = {
       },
       center: true,
     },
+
+    animation: {
+      "spin-slow": "spin 4s linear infinite",
+    },
     extend: {},
   },
   variants: {

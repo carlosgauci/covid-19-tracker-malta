@@ -2,20 +2,24 @@ import React, { useState } from "react";
 import { Line } from "react-chartjs-2";
 
 const Chart = ({ data }) => {
+  // State to detemine which chart to show (30, 180, 365 days)
   const [chart, setChart] = useState(30);
 
-  const newCasesData = data.map((data) => data["New Cases"]);
-  const dateData = data.map((data) => data.Date);
+  // Get dates for chart labels
+  const dates = data.map((data) => data.Date);
 
-  // subtracting each entry in the array by the one before it to get daily deaths/recoveries, since api only provides totals
-  const deathsData = data.map((data) => data.Deaths);
-  for (let i = deathsData.length - 1; i >= 0; i--) {
-    deathsData[i] = deathsData[i] - deathsData[i - 1];
+  // New cases
+  const newCases = data.map((data) => data["New Cases"]);
+
+  // Deaths & Recoveries
+  // Subtract each entry in the array by the one before it to get daily data, since api only provides totals
+  const deaths = data.map((data) => data.Deaths);
+  for (let i = deaths.length - 1; i >= 0; i--) {
+    deaths[i] = deaths[i] - deaths[i - 1];
   }
-
-  const recoveriesData = data.map((data) => data.Recovered);
-  for (let i = recoveriesData.length - 1; i >= 0; i--) {
-    recoveriesData[i] = recoveriesData[i] - recoveriesData[i - 1];
+  const recoveries = data.map((data) => data.Recovered);
+  for (let i = recoveries.length - 1; i >= 0; i--) {
+    recoveries[i] = recoveries[i] - recoveries[i - 1];
   }
 
   const determineDataSlice = (data) => {
@@ -29,28 +33,28 @@ const Chart = ({ data }) => {
   };
 
   const lineChartData = {
-    labels: determineDataSlice(dateData),
+    labels: determineDataSlice(dates),
     datasets: [
       {
         label: "New Cases",
         fill: false,
         tension: 0.1,
         borderColor: "#2b4575",
-        data: determineDataSlice(newCasesData),
+        data: determineDataSlice(newCases),
       },
       {
         label: "Recoveries",
         fill: false,
         tension: 0,
         borderColor: "#00d37b",
-        data: determineDataSlice(recoveriesData),
+        data: determineDataSlice(recoveries),
       },
       {
         label: "Deaths",
         fill: false,
         tension: 0,
         borderColor: "#951313",
-        data: determineDataSlice(deathsData),
+        data: determineDataSlice(deaths),
       },
     ],
   };

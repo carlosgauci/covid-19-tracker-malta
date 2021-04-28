@@ -2,14 +2,15 @@ import React, { useEffect, useState } from "react";
 import Header from "./Header";
 import CardSection from "./CardSection";
 import Chart from "./Chart";
+import Loader from "./Loader";
 import { readString } from "react-papaparse";
 import axios from "axios";
 
 const App = () => {
   const [data, setData] = useState();
 
+  // Get data from api
   useEffect(() => {
-    // Get data from api
     const fetchData = async () => {
       try {
         const response = await axios.get(
@@ -39,8 +40,14 @@ const App = () => {
   return (
     <>
       <Header />
-      {data && <CardSection data={data} />}
-      {data && <Chart data={data} />}
+      {data ? (
+        <main>
+          <CardSection data={data} />
+          <Chart data={data} />
+        </main>
+      ) : (
+        <Loader />
+      )}
     </>
   );
 };
