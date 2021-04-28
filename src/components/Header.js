@@ -2,8 +2,10 @@ import React from "react";
 
 const Header = () => {
   return (
-    <header>
-      <h1>Covid-19 Malta</h1>
+    <header className="container py-4">
+      <h1 className="text-5xl text-white font-semibold text-center">
+        Covid-19 Malta
+      </h1>
     </header>
   );
 };
