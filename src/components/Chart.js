@@ -60,13 +60,13 @@ const Chart = ({ data }) => {
   };
 
   const chartOptions = {
-    maintainAspectRatio: true,
+    maintainAspectRatio: false,
   };
 
   const chartDaySelect = [30, 180, 365];
   return (
-    <section className="container bg-white rounded-lg my-4">
-      <div className="py-2 flex justify-center">
+    <section className="container bg-white rounded-t-lg mt-4 py-4">
+      <div className="flex justify-center">
         {chartDaySelect.map((day) => (
           <button
             onClick={() => setChart(day)}
@@ -79,7 +79,11 @@ const Chart = ({ data }) => {
           </button>
         ))}
       </div>
-      <Line data={lineChartData} options={chartOptions} />
+      <Line
+        data={lineChartData}
+        options={chartOptions}
+        style={{ maxHeight: "500px" }}
+      />
     </section>
   );
 };

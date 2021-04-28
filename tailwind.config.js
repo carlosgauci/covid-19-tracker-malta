@@ -1,3 +1,5 @@
+const defaultTheme = require("tailwindcss/defaultTheme");
+
 module.exports = {
   purge: ["./src/**/*.{js,jsx,ts,tsx}", "./public/index.html"],
   darkMode: false,
@@ -11,6 +13,11 @@ module.exports = {
 
     animation: {
       "spin-slow": "spin 4s linear infinite",
+    },
+
+    screens: {
+      xs: "500px",
+      ...defaultTheme.screens,
     },
     extend: {},
   },

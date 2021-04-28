@@ -6,11 +6,11 @@ const CardSection = ({ data }) => {
   const yesterday = data[data.length - 2];
 
   return (
-    <section className="container flex justify-center py-4">
+    <section className="container flex flex-col xs:flex-row items-center justify-center py-4">
       <Card
         first={[today["New Cases"], "New Cases"]}
-        second={[today.Recovered - yesterday.Recovered, "Recoveries"]}
-        third={[today.Deaths - yesterday.Deaths, "Deaths"]}
+        second={[today.Recovered - yesterday.Recovered, "New Recoveries"]}
+        third={[today.Deaths - yesterday.Deaths, "New Deaths"]}
         date={today.Date}
       />
 

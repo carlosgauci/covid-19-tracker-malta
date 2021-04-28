@@ -5,6 +5,7 @@ import Chart from "./Chart";
 import Loader from "./Loader";
 import { readString } from "react-papaparse";
 import axios from "axios";
+import Footer from "./Footer";
 
 const App = () => {
   const [data, setData] = useState();
@@ -48,6 +49,7 @@ const App = () => {
       ) : (
         <Loader />
       )}
+      <Footer />
     </>
   );
 };

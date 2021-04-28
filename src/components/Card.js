@@ -3,7 +3,7 @@ import uuid from "react-uuid";
 
 const Card = ({ first, second, third, date }) => {
   return (
-    <article className="bg-white w-60 rounded-md overflow-hidden mx-4 shadow-lg">
+    <article className="bg-white w-60 rounded-md overflow-hidden my-2 xs:mb-0 xs:mx-4 shadow-lg">
       {[first, second, third].map((data) => {
         return (
           <div className="py-3 flex flex-col items-center" key={uuid()}>
@@ -14,7 +14,7 @@ const Card = ({ first, second, third, date }) => {
           </div>
         );
       })}
-      <div className="bg-green-600 text-white text-center text-xs py-1">
+      <div className="bg-green-500 text-white text-center text-xs font-semibold py-1">
         {date}
       </div>
     </article>
