@@ -40,7 +40,7 @@ const App = () => {
     <>
       <Header />
       {data && <CardSection data={data} />}
-      <Chart />
+      {data && <Chart data={data} />}
     </>
   );
 };
