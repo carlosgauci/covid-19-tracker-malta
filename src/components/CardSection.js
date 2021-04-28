@@ -11,12 +11,14 @@ const CardSection = ({ data }) => {
         first={[today["New Cases"], "New Cases"]}
         second={[today.Recovered - yesterday.Recovered, "Recoveries"]}
         third={[today.Deaths - yesterday.Deaths, "Deaths"]}
+        date={today.Date}
       />
 
       <Card
         first={[today["Active Cases"], "Total Active Cases"]}
-        second={[today.Recovered, "Recoveries"]}
-        third={[today.Deaths, "Deaths"]}
+        second={[today.Recovered, "Total Recoveries"]}
+        third={[today.Deaths, "Total Deaths"]}
+        date={`${today.Date}`}
       />
     </section>
   );
