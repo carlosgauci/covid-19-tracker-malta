@@ -41,6 +41,7 @@ const App = () => {
   return (
     <>
       <Header />
+
       {data ? (
         <main>
           <CardSection data={data} />
@@ -49,6 +50,7 @@ const App = () => {
       ) : (
         <Loader />
       )}
+
       <Footer />
     </>
   );

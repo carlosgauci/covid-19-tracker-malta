@@ -6,7 +6,7 @@ const CardSection = ({ data }) => {
   const yesterday = data[data.length - 2];
 
   return (
-    <section className="container flex flex-col xs:flex-row items-center justify-center py-4">
+    <section className="container flex flex-col xs:flex-row items-center justify-center py-2">
       <Card
         first={[today["New Cases"], "New Cases"]}
         second={[today.Recovered - yesterday.Recovered, "New Recoveries"]}
