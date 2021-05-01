@@ -82,7 +82,7 @@ const Chart = ({ data }) => {
       <Line
         data={lineChartData}
         options={chartOptions}
-        style={{ maxHeight: "500px" }}
+        style={{ maxHeight: "500px", height: "500px" }}
       />
     </section>
   );
